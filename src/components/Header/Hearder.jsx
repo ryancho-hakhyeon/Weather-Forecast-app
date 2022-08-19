@@ -6,13 +6,14 @@ import { RiArrowDropUpLine } from 'react-icons/ri'
 
 import './header.css'
 
-const Hearder = () => {
+const Hearder = ({submitSearch}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [location, setLocation] = useState('')
 
     const onSubmit = e => {
         e.preventDefault();
         if (!location || location ==='') return;
+        submitSearch(location)
     }
 
     return (

@@ -6,11 +6,15 @@ import TopForm from './components/TopForm/TopForm';
 
 // import Loader from './components/Loader/Loader'
 
+const onSubmit = (value) => {
+  console.log({value})
+}
+
 const App = () => {
   return (
     <>
       {/* <Loader/> */}
-      <Header/>
+      <Header submitSearch={onSubmit} />
       <TopForm/>
     </>
   );
