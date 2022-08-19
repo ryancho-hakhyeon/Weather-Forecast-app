@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import axios from 'axios'
+import React from 'react';
+// import axios from 'axios'
 
-function App() {
+import Header from './components/Header/Hearder'
+import TopForm from './components/TopForm/TopForm';
+
+// import Loader from './components/Loader/Loader'
+
+const App = () => {
   return (
-    <div>
-      <h2>Hello!</h2>
-    </div>
+    <>
+      {/* <Loader/> */}
+      <Header/>
+      <TopForm/>
+    </>
   );
 }
 

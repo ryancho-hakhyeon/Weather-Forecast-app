@@ -1,0 +1,101 @@
+
+.container__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F0F8FF;
+    height: 2.2rem;
+    border-radius: 0 0 20px 20px;
+    transition: height ease 0.3s;
+}
+
+.container__box {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F0F8FF;
+    border-radius: 20px;
+    background: #F0F8FF;
+    width: 17rem;
+    align-items: center;
+    transition: all ease 0.3s;
+}
+
+.text__box {
+    position: relative;
+    margin: 2rem 0 0 0;
+}
+
+.text__box > h2 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.text__arrow-icon {
+    margin: -0.6rem 0 -0.3rem 0;
+    font-size: 1.5rem;
+}
+
+.container__box:hover, .container__box-show {
+    cursor:pointer;
+}
+
+
+/* ============= onClick Event ============= */
+
+.container__show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F0F8FF;
+    height: 6rem;
+    border-radius: 0 0 20px 20px;
+    transition: height ease 0.3s;
+}
+
+.container__box-show {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F0F8FF;
+    border-radius: 20px;
+    background: #F0F8FF;
+    width: 17rem;
+    align-items: center;
+    margin-top: 3.5rem;
+    transition: all ease 0.3s;
+}
+
+.container__form {
+    margin-top: -1rem;
+    z-index: 1;
+}
+
+.container__form > label {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5rem;
+}
+
+.container__form > label > input {
+    background: #DCDCDC;
+    border-radius: 5px;
+    padding: 7px; 
+    width: 20rem;
+}
+
+.search__button{
+    color: var(--text-primary);
+    font-weight: bold;
+    background: blue;
+    border-radius: 10px;
+    width: 4.5rem;
+    height: 2rem;
+}
+
+.search__button:hover {
+    cursor: pointer;
+}
+
+
+
