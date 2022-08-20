@@ -1,9 +1,30 @@
 .container__top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container__topbox {
     position: fixed;
     top: 8rem;
-    left: 50%;
     height: 17rem;
-    width: 50rem;
-    border: 1px solid black;
+    width: 60%;
     border-radius: 20px;
+    box-shadow: 0 0 25px 0.5px black ;
+}
+
+.container__today {
+    background: white;
+    height: 100%;
+    width: 50%;
+    padding: 2rem;
+    border-radius: 20px 0 0 20px;
+    opacity: 0.6;
+}
+
+.container__today-info {
+    margin-left: 50%;
+    margin-top: -17rem;;
+    display: inline-flexbox;
+    padding: 2rem
 }

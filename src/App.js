@@ -4,13 +4,18 @@ import React from 'react';
 import Header from './components/Header/Hearder'
 import TopForm from './components/TopForm/TopForm';
 
-// import Loader from './components/Loader/Loader'
+import useForecast from './hooks/useForecast';
 
-const onSubmit = (value) => {
-  console.log({value})
-}
+// // import Loader from './components/Loader/Loader'
 
 const App = () => {
+  const { forecast, submitRequest } = useForecast()
+
+  const onSubmit = (value) => {
+    // console.log({value})
+    submitRequest(value)
+  }
+
   return (
     <>
       {/* <Loader/> */}

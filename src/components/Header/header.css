@@ -9,6 +9,10 @@
     transition: height ease 0.3s;
 }
 
+.container__form {
+    
+}
+
 .container__box {
     position: absolute;
     display: flex;

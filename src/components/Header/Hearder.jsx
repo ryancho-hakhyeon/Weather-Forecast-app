@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import PropTypes from 'prop-types'
 
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { RiArrowDropUpLine } from 'react-icons/ri'
@@ -10,7 +10,7 @@ const Hearder = ({submitSearch}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [location, setLocation] = useState('')
 
-    const onSubmit = e => {
+    const onSubmit = (e) => {
         e.preventDefault();
         if (!location || location ==='') return;
         submitSearch(location)
@@ -21,7 +21,10 @@ const Hearder = ({submitSearch}) => {
             {isOpen && 
             <form className='container__form'>
                 <label>
-                    <input type="text" placeholder='Search for Location' onChange={e => setLocation(e.target.value)}/>
+                    <input type="text" 
+                        placeholder='Search for Location' 
+                        onChange={e => setLocation(e.target.value)}
+                        />
                     <button className='search__button' onClick={onSubmit}>Search</button>
                 </label>
             </form>
@@ -37,6 +40,10 @@ const Hearder = ({submitSearch}) => {
             </div>
         </div>
     )
+}
+
+Hearder.propTypes = {
+    submitSearch: PropTypes.func.isRequired
 }
 
 export default Hearder
