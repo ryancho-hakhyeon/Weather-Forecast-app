@@ -1,19 +1,34 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { RiArrowDropUpLine } from 'react-icons/ri'
 
 import './header.css'
+import { geoApiOptions } from '../../hooks/getGeoAPIs'
 
-const Hearder = ({submitSearch}) => {
+const Hearder = ({ submitSearch }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [location, setLocation] = useState('')
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (!location || location ==='') return;
-        submitSearch(location)
+        if (!location || location === '') return;
+    
+        geoApiOptions.params.namePrefix = location
+        axios.request(geoApiOptions).then((response) => {
+            return submitSearch({
+                options: response.data.data.map((city) => {
+                    return {
+                        value: `${city.latitude}, ${city.longitude}`,
+                        label: `${city.name}, ${city.countryCode}`
+                    }
+                })
+            })
+        }).catch((err) => {
+            console.log(err)
+        })
     }
 
     return (
