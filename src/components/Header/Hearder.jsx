@@ -18,14 +18,16 @@ const Hearder = ({ submitSearch }) => {
     
         geoApiOptions.params.namePrefix = location
         axios.request(geoApiOptions).then((response) => {
-            return submitSearch({
-                options: response.data.data.map((city) => {
+            submitSearch(
+                response.data.data.map((city) => {
                     return {
-                        value: `${city.latitude}, ${city.longitude}`,
-                        label: `${city.name}, ${city.countryCode}`
+                        lat: `${city.latitude}`,
+                        lon: `${city.longitude}`,
+                        city: `${city.name}`,
+                        country: `${city.countryCode}`
                     }
                 })
-            })
+            )
         }).catch((err) => {
             console.log(err)
         })

@@ -7,14 +7,18 @@ function TopForm() {
     <div className='container__top'>
       <div className='container__topbox'>
         <div className='container__today'>
+          
           <p>Year</p>
           <p>Date, Months</p>
+          
+          <p>25°C</p>
           <p>Sunny</p>
-          <p>25 celius</p>
         </div>
 
         <div className='container__today-info'>
-            <p>City, Country Code</p>
+            <p>Feels Like</p>
+            <p>H.T</p>
+            <p>L.T</p>
             <p>Humidity</p>
             <p>Pressure</p>
             <p>Wind</p>

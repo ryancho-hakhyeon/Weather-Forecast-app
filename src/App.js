@@ -3,6 +3,7 @@ import React from 'react';
 
 import Header from './components/Header/Hearder'
 import TopForm from './components/TopForm/TopForm';
+import Forecast from './components/Forecast/Forecast'
 
 import useForecast from './hooks/useForecast';
 
@@ -12,7 +13,7 @@ const App = () => {
   const { forecast, submitRequest } = useForecast()
 
   const onSubmit = (value) => {
-    // console.log({value})
+    // console.log(value)
     submitRequest(value)
   }
 
@@ -20,7 +21,8 @@ const App = () => {
     <>
       {/* <Loader/> */}
       <Header submitSearch={onSubmit} />
-      <TopForm/>
+      <TopForm />
+      <Forecast />
     </>
   );
 }
