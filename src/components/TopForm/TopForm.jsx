@@ -2,29 +2,34 @@ import React from 'react'
 
 import './topform.css'
 
-function TopForm() {
+const TopForm = ({forecast}) => {
   return (
     <div className='container__top'>
-      <div className='container__topbox'>
-        <div className='container__today'>
-          
-          <p>Year</p>
-          <p>Date, Months</p>
-          
-          <p>25°C</p>
-          <p>Sunny</p>
-        </div>
-
-        <div className='container__today-info'>
-            <p>Feels Like</p>
-            <p>H.T</p>
-            <p>L.T</p>
-            <p>Humidity</p>
-            <p>Pressure</p>
-            <p>Wind</p>
-        </div>
+      <div className='container__cityname'>
+        <p>{forecast.currentDay.location}</p>
       </div>
 
+      <div className='container__current-box'>
+        <div className='container__current-simple'>
+          <div>
+            <p className='today__weather'>{forecast.currentDay.weather}</p>
+            <p>{forecast.currentDay.date}</p>
+            <p>{forecast.currentDay.weekday}.</p>
+            <p className='today__celcius'>{forecast.currentDay.temperature}°</p>
+          </div>
+        </div>
+
+        <div className='container__current-details'>
+          { forecast.currentDetails.map(({name, value, unit}, index) => {
+            return (
+              <div key={index} className='current__detail'>
+                <p>{name}</p>
+                <p>{value} {unit}</p>
+              </div>
+            )
+          }) }
+        </div>
+      </div>
     </div>
   )
 }

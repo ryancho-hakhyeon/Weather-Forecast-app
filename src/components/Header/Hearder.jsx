@@ -12,12 +12,12 @@ const Hearder = ({ submitSearch }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [location, setLocation] = useState('')
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         if (!location || location === '') return;
     
         geoApiOptions.params.namePrefix = location
-        axios.request(geoApiOptions).then((response) => {
+        await axios.request(geoApiOptions).then((response) => {
             submitSearch(
                 response.data.data.map((city) => {
                     return {

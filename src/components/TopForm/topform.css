@@ -1,30 +1,62 @@
 .container__top{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.container__topbox {
-    position: fixed;
-    top: 8rem;
-    height: 17rem;
-    width: 60%;
+.container__cityname {
+    margin-top: 2.5rem;
+}
+
+.container__cityname > p {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.container__current-box {
+    margin-top: 1rem;
+    display: inline-flex;
+}
+
+.container__current-simple, 
+.container__current-details {
     border-radius: 20px;
-    box-shadow: 0 0 25px 0.5px black ;
+    margin: 0.5rem;
+    padding: 1rem 2rem 1rem 2rem;
 }
 
-.container__today {
-    background: white;
-    height: 100%;
-    width: 50%;
-    padding: 2rem;
-    border-radius: 20px 0 0 20px;
-    opacity: 0.6;
+.container__current-simple {
+    width: 20rem;
+    background-image: linear-gradient(rgba(56, 56, 56, 0.5), rgba(155, 151, 151, 0.5)), url('../../assets/background.jpg');
+    background-size: cover;
 }
 
-.container__today-info {
-    margin-left: 50%;
-    margin-top: -17rem;;
-    display: inline-flexbox;
-    padding: 2rem
+.container__current-simple > div {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.today__weather {
+    font-size: 1.7rem;
+}
+
+.today__celcius {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 3.5rem;
+}
+
+.container__current-details {
+    width: 25rem;
+    color: var(--text-primary);
+    background: rgb(116, 192, 230, 0.8);
+}
+
+.current__detail{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
 }

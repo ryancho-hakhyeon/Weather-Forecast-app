@@ -21,7 +21,8 @@ const App = () => {
     <>
       {/* <Loader/> */}
       <Header submitSearch={onSubmit} />
-      <TopForm />
+      
+      {forecast && <TopForm forecast={forecast}/>}
       <Forecast />
     </>
   );
