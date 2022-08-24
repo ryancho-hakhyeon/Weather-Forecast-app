@@ -1,0 +1,19 @@
+.container__weekforecast {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    padding: 0.5rem;
+}
+
+.container__dayforecast {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-radius: 20px;
+    margin: 0.5rem;
+    padding: 1rem;
+    width: 70%;
+    background-image: linear-gradient(rgba(198, 194, 194, 0.5), rgba(246, 235, 235, 0.318))
+}

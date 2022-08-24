@@ -21,7 +21,7 @@ const Hearder = ({ submitSearch }) => {
             submitSearch(
                 response.data.data.map((city) => {
                     return {
-                        lat: `${city.latitude}`,
+                        lat: `${Math.round(city.latitude * 100) / 100}`,
                         lon: `${city.longitude}`,
                         city: `${city.name}`,
                         country: `${city.countryCode}`

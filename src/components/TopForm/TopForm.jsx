@@ -6,7 +6,7 @@ const TopForm = ({forecast}) => {
   return (
     <div className='container__top'>
       <div className='container__cityname'>
-        <p>{forecast.currentDay.location}</p>
+        <p>{forecast.currentDay.location}, {forecast.currentDay.countryCode}</p>
       </div>
 
       <div className='container__current-box'>

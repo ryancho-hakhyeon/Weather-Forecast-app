@@ -1,5 +1,6 @@
 
-const getCurrentWeather = (data, city) => {
+
+const getCurrentWeather = (data, city, country) => {
 
     const getConvertDate = (UNIX_time) => {
         const d = new Date(UNIX_time * 1000)
@@ -12,7 +13,8 @@ const getCurrentWeather = (data, city) => {
         weekday: getConvertDate(data.dt).slice(0, 3),
         date: getConvertDate(data.dt).slice(5, 11),
         location: city,
-        temperature: Math.round(data.main.temp - 273.15)
+        countryCode: country,
+        temperature: Math.round(data.main.temp)
     })
 }
 

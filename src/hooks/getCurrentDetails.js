@@ -2,7 +2,7 @@
 const getCurrentDetails = (data) => [
     {
         name: 'FEELS LIKE',
-        value: Math.round(data.main.feels_like - 273.15),
+        value: Math.round(data.main.feels_like),
         unit: ' °C'
     },
     {
@@ -12,12 +12,12 @@ const getCurrentDetails = (data) => [
     },
     {
         name: 'HIGH TEMP',
-        value: Math.round(data.main.temp_max - 273.15),
+        value: Math.round(data.main.temp_max),
         unit: ' °C'   
     },
     {
         name: 'LOW TEMP',
-        value: Math.round(data.main.temp_min - 273.15),
+        value: Math.round(data.main.temp_min),
         unit: ' °C'   
     },
     {

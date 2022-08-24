@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios'
 
 import Header from './components/Header/Hearder'
 import TopForm from './components/TopForm/TopForm';
@@ -10,7 +9,7 @@ import useForecast from './hooks/useForecast';
 // // import Loader from './components/Loader/Loader'
 
 const App = () => {
-  const { forecast, submitRequest } = useForecast()
+  const { forecast, weekForecast, submitRequest } = useForecast()
 
   const onSubmit = (value) => {
     // console.log(value)
@@ -23,7 +22,7 @@ const App = () => {
       <Header submitSearch={onSubmit} />
       
       {forecast && <TopForm forecast={forecast}/>}
-      <Forecast />
+      {weekForecast && <Forecast weekForecast={weekForecast} />}
     </>
   );
 }
