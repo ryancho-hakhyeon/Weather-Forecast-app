@@ -28,6 +28,8 @@
 }
 
 .container__current-simple {
+    display: flex;
+    gap: 4rem;
     width: 20rem;
     background-image: linear-gradient(rgba(56, 56, 56, 0.5), rgba(155, 151, 151, 0.5)), url('../../assets/background.jpg');
     background-size: cover;
@@ -36,6 +38,21 @@
 .container__current-simple > div {
     color: var(--text-primary);
     font-weight: 600;
+}
+
+.container__today-img {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container__today-img > p{
+    margin-top: -0.5rem;
+}
+
+.today__img {
+    width: 7rem;
+    height: 7rem;
 }
 
 .today__weather {

@@ -22,11 +22,6 @@ const useForecast = () => {
     }
 
     const getherForecastData = (data) => {
-        // const tempData = data.list.filter((idx) => {
-        //     return idx.dt_txt.slice(11, 19) === '00:00:00'
-        // })
-        // const forecastDetails = getForecastDetails(tempData)
-
         const forecastDetails = getForecastDetails(data)
         // console.log(forecastDetails)
         setWeekForecast(forecastDetails)

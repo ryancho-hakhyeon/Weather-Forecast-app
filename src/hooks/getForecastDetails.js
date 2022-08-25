@@ -19,6 +19,8 @@ const getForecastDetails = (data) => {
     const getAverage = (arr) => arr.reduce(adder) / arr.length
 
     return ({
+      img: newdata[0].weather[0].icon,
+      des: newdata[0].weather[0].description,
       date: convertDate(newdata[0].dt).slice(5, 11),
       weekday: convertDate(newdata[0].dt).slice(0, 3),
       weather: newdata[0].weather[0].main,
@@ -27,7 +29,7 @@ const getForecastDetails = (data) => {
       hightemp: Math.round(Math.max.apply(null, newdata.map((obj) => {return obj.main.temp_max}))) + ' °',
       lowtemp: Math.round(Math.min.apply(null, newdata.map((obj) => {return obj.main.temp_min}))) + ' °',
       humidity: Math.round(getAverage(newdata.map((obj) => { return obj.main.humidity}))) + ' %',
-      aripressure: Math.round(getAverage(newdata.map((obj) => { return obj.main.pressure}))) + ' mb',
+      airpressure: Math.round(getAverage(newdata.map((obj) => { return obj.main.pressure}))) + ' mb',
       wind: Math.round(getAverage(newdata.map((obj) => { return obj.wind.speed}))) + ' m/s',
       visibility: Math.round(getAverage(newdata.map((obj) => { return obj.visibility}))) / 1000 + ' km'
     })

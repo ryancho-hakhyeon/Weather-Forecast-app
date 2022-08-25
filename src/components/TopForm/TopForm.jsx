@@ -17,6 +17,11 @@ const TopForm = ({forecast}) => {
             <p>{forecast.currentDay.weekday}.</p>
             <p className='today__celcius'>{forecast.currentDay.temperature}°</p>
           </div>
+
+          <div className='container__today-img'>
+            <img src={`icons/${forecast.currentDay.img}.png`} className='today__img' alt="" />
+            <p>{forecast.currentDay.des}</p>
+          </div>
         </div>
 
         <div className='container__current-details'>

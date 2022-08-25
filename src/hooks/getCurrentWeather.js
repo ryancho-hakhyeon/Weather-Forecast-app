@@ -9,6 +9,8 @@ const getCurrentWeather = (data, city, country) => {
     }
 
     return ({
+        img: data.weather[0].icon,
+        des: data.weather[0].description,
         weather: data.weather[0].main,
         weekday: getConvertDate(data.dt).slice(0, 3),
         date: getConvertDate(data.dt).slice(5, 11),
