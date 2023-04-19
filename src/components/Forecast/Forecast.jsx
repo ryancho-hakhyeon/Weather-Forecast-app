@@ -1,57 +1,62 @@
 import React from 'react'
+import { AiTwotoneCalendar } from 'react-icons/ai'
+import { Ri24HoursLine } from 'react-icons/ri'
 
 import './forecast.css'
 
-const Forecast = ({weekForecast}) => {
+const Forecast = ({weekForecast, unitToggle}) => {
+  // console.log(weekForecast.forecastBrief, weekForecast.forecastDetails)
+  // console.log(weekForecast.forecastBrief)
+
   return (
     <div className='container__weekforecast'>
-      {
-        weekForecast.map((idx, id) => {
-          return (
-            <div key={id}>
-              <div className='container__dayforecast'>
-                <div className='container__temp'>
-                  <img src={`icons/${idx.img}.png`} className='weather__icon' alt="" />
-                  <label>{idx.weekday}</label>
-                  <label>{idx.tempreture} </label>
-                  <label>{idx.weather}</label>
-                </div>
+      <div className='weekforecast-current-hours'>
+          <div className="weekforecast-hours-title">
+            <Ri24HoursLine className='weekforecast-title-icon'/>
+            <span>Today's Hourly Forecast</span>
+          </div>
 
-                <div className='container__weekday'>
-                  <label>{idx.date}</label>
-                </div>
+          <ul className='forecast-hours'>
+            {
+              weekForecast.forecastBrief.map((data, idx) => {
+                return (
+                  <li key={idx}>
+                    <span>{data.time}</span>
+                    <img src={`icons/${data.img}.png`} alt="" />
+                    <span>{data.weather}</span>
+                    {
+                      unitToggle === 'F' ?
+                      <span>{data.temperature_fahrenheit}</span> : <span>{data.temperature}</span> 
+                    }
+                  </li>
+                )
+              })
+            }
+          </ul>
+      </div>
 
-                <div className='container__highandlow'>
-                  <label>{idx.lowtemp} - {idx.hightemp}</label>
-                </div>
-              </div>
+      <div className='weekforecast-current-week'>
+        <div className='weekforecast-title'>
+          <AiTwotoneCalendar className='weekforecast-title-icon'/>
+          <span>5-DAYS FORECAST</span>
+        </div>
 
-              {/* <div className='container__details'>
-                <div>
-                  <label>FEELS LIKE:</label>
-                  <label>{idx.feelslike}</label>
-                </div>
-                <div>
-                  <label>HUMIDITY:</label>
-                  <label>{idx.humidity}</label>
-                </div>
-                <div>
-                  <label>PRESSURE:</label>
-                  <label>{idx.airpressure}</label>
-                </div>
-                <div>
-                  <label>WIND SPEED:</label>
-                  <label>{idx.wind}</label>
-                </div>
-                <div>
-                  <label>VISIBILITY:</label>
-                  <label>{idx.visibility}</label>
-                </div>
-              </div> */}
-            </div>
-          )
-        })
-      } 
+        <ul className='forecast-weeks'>
+        {
+          weekForecast.forecastDetails.map((data, idx) => {
+            return (
+                  <li key={idx}>
+                    <img className='weather-icon' src={`icons/${data.img}.png`} alt="" />
+                    <span>{data.weekday}</span>
+                    <span>{data.weather}</span>
+                    <span>{data.date}</span>
+                    <span>{unitToggle === 'F' ? `${data.lowtemp_fahrenheit} - ${data.hightemp_fahrenheit}` : `${data.lowtemp} - ${data.hightemp}`}</span>
+                  </li>
+            )
+          })
+        }
+        </ul>
+      </div>
     </div>
   )
 }

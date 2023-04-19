@@ -1,28 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Header from './components/Header/Hearder'
-import TopForm from './components/TopForm/TopForm';
-import Forecast from './components/Forecast/Forecast'
+import Loader from './components/Loader/Loader';
+import ModeTabs from './components/Mode/ModeTabs';
 
 import useForecast from './hooks/useForecast';
 
-// // import Loader from './components/Loader/Loader'
-
 const App = () => {
-  const { forecast, weekForecast, submitRequest } = useForecast()
-
+  const { forecast, weekForecast, airPollution, submitRequest } = useForecast()
+  const [ unitToggle, setUnitToggle ] = useState(null)
+  const [ isLoading, setIsLoading ] = useState(true)
+  const [ modeSelection, setModeSelection ] = useState(null)
+  
+  useEffect(() => {
+    if (isLoading) {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 2000)
+    }
+  }, [isLoading])
+  
   const onSubmit = (value) => {
     // console.log(value)
     submitRequest(value)
   }
 
+  const toggleState = (isToggle) => {
+    // console.log(isToggle)
+    setUnitToggle(isToggle)
+  }
+
+  const onHandleModeSelect = (isMode) => {
+    // console.log(isMode)
+    setModeSelection(isMode)
+  }
+
+
   return (
     <>
-      {/* <Loader/> */}
-      <Header submitSearch={onSubmit} />
-      
-      {forecast && <TopForm forecast={forecast}/>}
-      {weekForecast && <Forecast weekForecast={weekForecast} />}
+      {isLoading ? 
+        (<Loader />) 
+        :
+        (<>
+          <Header submitSearch={onSubmit} unitChange={toggleState} modeChange={onHandleModeSelect} />
+          { forecast && weekForecast && airPollution &&
+          <ModeTabs forecast={forecast} weekForecast={weekForecast} airPollution={airPollution} modeChange={modeSelection} unitChange={unitToggle} /> }
+        </>)
+      }
     </>
   );
 }

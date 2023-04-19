@@ -1,0 +1,296 @@
+#dashboard-mode {
+    padding: 20px;
+    /* border: 1px solid black; */
+    margin-bottom: 20px;
+}
+
+.dashboard_container {
+    /* height: 830px; */
+    /* border: 1px solid #696969; */
+    border-radius: 20px;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: 300px auto;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.img-Clear {
+    background-image: url(../../assets/sunny.jpg);
+}
+
+.img-Rain {
+    background-image: url(../../assets/Rain.jpg);
+}
+
+.img-Clouds {
+    background-image: url(../../assets/Clouds.jpg);
+}
+
+.img-Snow {
+    background-image: url(../../assets/sunny.jpg);
+}
+
+/* ================== Today's Weather Forecast ================== */
+
+.today-forecast {
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    /* filter: blur(10px); */
+    /* border: 1px solid #fff; */
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.today-brief {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 10px 0;
+    height: 480px;
+    /* border: 1px solid beige; */
+}
+
+.today-forecast .today-brief p {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin-top: .5rem;
+    height: 2rem;
+}
+
+.today-forecast .today-brief p:nth-child(1),
+.today-forecast .today-brief p:nth-child(2),
+.today-forecast .today-brief p:nth-child(5),
+.today-forecast .today-brief p:nth-child(7) {
+    font-size: 1.7rem;
+}
+
+.today-forecast .today-brief p:nth-child(2),
+.today-forecast .today-brief p:nth-child(4),
+.today-forecast .today-brief p:nth-child(5),
+.today-forecast .today-brief p:nth-child(7) {
+    margin-bottom: 20px;
+}
+
+.today-brief-icon {
+    width: 150px;
+    height: 150px;
+}
+
+/* ============== Today Details =============== */
+.today-details-forecast {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    /* overflow-x: auto; */
+}
+
+.today-details-title {
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.today-details {
+    margin: 5px;
+    padding: 20px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.today-details-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.top-icon {
+    font-size: 50px;
+    color: #fff;
+}
+
+.today-details-top .sun-details,
+.today-details-top .air-details {
+    background: #ebebebbf;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.cards-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    color: #696969;
+    margin-bottom: 30px;
+}
+
+.card-info {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-info-title {
+    color: #696969;
+}
+
+.card-info-sub {
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.today-details-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    /* border: 1px solid black; */
+}
+
+.details-card {
+    background: #ebebebbf;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px;
+}
+
+.air-title-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.air-aqi-text {
+    padding: 2px 10px 2px 10px;
+    border-radius: 20px;
+    /* border: 1px solid black; */
+}
+
+.aqi-1 {
+    background: #cbf078;
+}
+
+.aqi-2 {
+    background: #f7ec77;
+}
+
+.aqi-3 {
+    background: #ed9f66;
+    color: #eee;
+}
+
+.aqi-4 {
+    background: #da5151;
+    color: #eee;
+}
+
+.aqi-5 {
+    background: #876464;
+    color: #eee;
+}
+
+.air-details .cards-info .card-info {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.wind-img {
+    height: 60px;
+    width: 60px;
+}
+
+/* =================== Today's Forecast Each 3 Hours ===================*/
+.today-details-hourly {
+    /* border: 1px solid black; */
+    margin: 0px 5px 0px 5px;
+    padding: 20px;
+}
+
+.today-hourly-title {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.today-hourly-chart {
+    /* border: 1px solid black; */
+    background: #e7eaf6af;
+    border-radius: 20px;
+    padding: 20px;
+    height: 300px;
+    /* width: 100%; */
+}
+
+
+/* ================== Week(5 Days) Weather Forecast ================== */
+.week-forecast-box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background: #eee;
+    opacity: .8;
+    padding: 10px;
+    height: 290px;
+}
+
+.week-forecast-title {
+    /* display: flex; */
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.week-forecast-title p {
+    font-weight: 600;
+    font-size: .7rem;
+    color: #696969;
+}
+
+.week-forecast {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* border: 1px solid blue; */
+    padding: 10px 0 10px 0;
+    border-top: 2px solid lightgrey;
+    font-size: .7rem;
+}
+
+.week-forecast .weather-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.week-forecast span:nth-child(2) {
+    /* border: 1px solid blue; */
+    width: 35px;
+}
+
+.week-forecast span:nth-child(3) {
+    /* border: 1px solid blue; */
+    width: 50px;
+}
+
+.week-forecast span:nth-child(4) {
+    /* border: 1px solid blue; */
+    width: 50px;
+}
+
+.week-forecast label {
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: flex-end;
+    width: 80px;
+}

@@ -1,106 +1,234 @@
 
-.container__header {
+.header-container {
+    padding: 30px 20px 10px 20px;
+    /* height: 80px; */
+    /* border: 1px solid black; */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #F0F8FF;
-    height: 2.2rem;
-    border-radius: 0 0 20px 20px;
-    transition: height ease 0.3s;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+    background: white;
 }
 
-.container__form {
-    
-}
-
-.container__box {
-    position: absolute;
+.form-container label {
     display: flex;
-    flex-direction: column;
-    border: 1px solid #F0F8FF;
-    border-radius: 20px;
-    background: #F0F8FF;
-    width: 17rem;
+    gap: 10px;
+    justify-content: flex-start;
     align-items: center;
-    transition: all ease 0.3s;
 }
 
-.text__box {
+.form-container label input {
+    height: 40px;
+    width: 20rem;
+    padding-left: .7rem;
+    padding-right: .7rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.search-btn {
     position: relative;
-    margin: 2rem 0 0 0;
-}
-
-.text__box > h2 {
-    font-weight: 600;
-    font-size: 20px;
-}
-
-.text__arrow-icon {
-    margin: -0.6rem 0 -0.3rem 0;
-    font-size: 1.5rem;
-}
-
-.container__box:hover, .container__box-show {
-    cursor:pointer;
-}
-
-
-
-/* ============= onClick Event ============= */
-
-.container__show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #F0F8FF;
-    height: 6rem;
-    border-radius: 0 0 20px 20px;
-    transition: height ease 0.3s;
-}
-
-.container__box-show {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #F0F8FF;
-    border-radius: 20px;
-    background: #F0F8FF;
-    width: 17rem;
-    align-items: center;
-    margin-top: 3.5rem;
-    transition: all ease 0.3s;
-}
-
-.container__form {
-    margin-top: -1rem;
+    background: #0092ca;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-weight: bold;
+    vertical-align: middle;
+    color: var(--text-primary);
+    width: 45px;
+    height: 40px;
+    overflow: hidden;
     z-index: 1;
 }
 
-.container__form > label {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 0.5rem;
+.search-btn::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+	width: 30px;
+	height: 30px;
+    border-radius: 50%;
+    background: #3f51b5;
+    transform-origin: 100% 50%;
+	transform: scale3d(1, 2, 1);
+	transition: transform 0.3s, opacity 0.3s;
+	transition-timing-function: cubic-bezier(0.7, 0, 0.9, 1);
 }
 
-.container__form > label > input {
-    background: #DCDCDC;
-    border-radius: 5px;
-    padding: 7px; 
-    width: 20rem;
-}
-
-.search__button{
-    color: var(--text-primary);
-    font-weight: bold;
-    background: blue;
-    border-radius: 10px;
-    width: 4.5rem;
-    height: 2rem;
-}
-
-.search__button:hover {
+.search-btn:hover {
     cursor: pointer;
 }
 
+.search-btn:hover::before {
+    transform: scale3d(9, 9, 1);
+}
 
+.search-btn-icon {
+    height: 25px;
+    width: 25px;
+}
 
+.autocomplete-data {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-content: center; */
+    background-color: #fff;
+    border: 1px solid #fff;
+    width: 20rem;
+    margin-top: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.filtered-data {
+    width: 100%;
+    padding: 5px;
+    cursor: pointer;
+    color: gray;
+    font-size: .8rem;
+    overflow: hidden;
+}
+
+.filtered-data:hover {
+    background: #0092ca;
+    color: white;
+}
+
+/* ================= Current Location ================= */
+.current-location{
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.current-location-icon {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    color: #bbb;
+}
+
+.current-location-icon:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+/* ================= Mode Select =================  */
+.mode-container {
+    display: flex;
+    position: absolute;
+    right: 130px;
+    /* justify-content: center;
+    align-items: center; */
+    /* border: 1px solid black; */
+    /* width: 400px; */
+}
+
+.mode-container input {
+    display: none;
+}
+
+.mode-container label {
+    display: flex;
+    padding: 5px 10px 0 10px;
+    font-weight: 600;
+    color: #bbb;
+    font-size: 2rem;
+    justify-content: center;
+    align-content: center;
+    /* border: 1px solid beige; */
+}
+
+.mode-container label:hover {
+    color: #888;
+    cursor: pointer;
+}
+
+.mode-container input:checked + label {
+    color: #555;
+    /* border: 1px solid white; */
+    border: 1px solid #ddd;
+    border-top: 2px solid orange;
+    border-bottom: 1px solid #fff;
+}
+
+/* =============== Toggle Button ================ */
+.toggle-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid beige;
+    position: absolute;
+    right: 0;
+}
+
+.toggle-container label {
+    width: 70px;
+    height: 35px;
+    position: absolute;
+    right: 20px;
+    display: block;
+    background: #ebebeb;
+    border-radius: 150px;
+    box-shadow: inset 0px 5px 15px #0000006f, inset 0px -5px 15px #fffff06f;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.toggle-container label::after {
+    content: "";
+    width: 37px;
+    height: 30px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background: linear-gradient(180deg, #d1e0ec, #6295bf);
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px #0000006f;
+    transition: .3s;
+}
+
+.toggle-container input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.toggle-container input:checked + label::after {
+    left: 68px;
+    transform: translateX(-100%);
+    /* background: linear-gradient(180deg, #777, #3a3a3a); */
+}
+
+.icon-celsius {
+    color: #ebebeb;
+    left: 4px;
+}
+
+.icon-fahrenheit{
+    color: #7e7e7e;
+    right: 4px;
+}
+
+.icon-celsius, .icon-fahrenheit {
+    position: absolute;
+    top: 5px;
+    font-size: 1.5rem;
+    transition: .3s;
+    z-index: 10;
+}
+
+.toggle-container input:checked + label .icon-celsius {
+    color: #7e7e7e;
+}
+
+.toggle-container input:checked + label .icon-fahrenheit {
+    color: #ebebeb;
+}

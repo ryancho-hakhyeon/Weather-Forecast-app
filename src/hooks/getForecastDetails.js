@@ -1,47 +1,36 @@
+import { getWeekDay, getDate, getFahrenheit } from './module'
 
 const getForecastDetails = (data) => {
 
-  const convertDate = (UNIX_time) => {
-    const d = new Date(UNIX_time * 1000)
-    var converted = d.toGMTString()
-    return converted
+  const getForecast = () => {
+    const collectedData = []
+    // console.log(data)
+    for (let i=7; i < data.list.length; i+=8) {
+      // console.log(data.list[i])
+      const test = data.list.filter(d => getDate(data.list[i].dt, data.city.timezone) === getDate(d.dt, data.city.timezone))
+      
+      const temp_min = Math.min(...test.map(info => info.main.temp_min))
+      const temp_max = Math.max(...test.map(info => info.main.temp_max))
+
+      const filteredData = {
+        img: data.list[i].weather[0].icon,
+        // des: data.list[i].weather[0].description,
+        date: getDate(data.list[i].dt, data.city.timezone),
+        weekday: getWeekDay(data.list[i].dt, data.city.timezone),
+        weather: data.list[i].weather[0].main,
+        // temperature: `${Math.ceil(data.list[i].main.temp)} °`,
+        hightemp: `${Math.ceil(temp_max)} °`,
+        lowtemp: `${Math.ceil(temp_min)} °`,
+        hightemp_fahrenheit: `${getFahrenheit(Math.ceil(temp_max))} °`,
+        lowtemp_fahrenheit: `${getFahrenheit(Math.ceil(temp_min))} °`
+      }
+      collectedData.push(filteredData)
+    }
+    // console.log(collectedData)
+    return collectedData
   }
 
-  const takeDate = (num) => {
-    const d = new Date()
-    
-    const newdata = data.list.filter((obj) => {
-      const t = new Date(obj.dt * 1000) 
-      return (parseInt(t.toGMTString().slice(5, 7)) === d.getDate() + num)
-    })
-
-    const adder = (a, b) => a + b
-    const getAverage = (arr) => arr.reduce(adder) / arr.length
-
-    return ({
-      img: newdata[0].weather[0].icon,
-      des: newdata[0].weather[0].description,
-      date: convertDate(newdata[0].dt).slice(5, 11),
-      weekday: convertDate(newdata[0].dt).slice(0, 3),
-      weather: newdata[0].weather[0].main,
-      tempreture: Math.round(getAverage(newdata.map((obj) => { return obj.main.temp}))) + ' °',
-      feelslike: Math.round(getAverage(newdata.map((obj) => { return obj.main.feels_like}))) + ' °',
-      hightemp: Math.round(Math.max.apply(null, newdata.map((obj) => {return obj.main.temp_max}))) + ' °',
-      lowtemp: Math.round(Math.min.apply(null, newdata.map((obj) => {return obj.main.temp_min}))) + ' °',
-      humidity: Math.round(getAverage(newdata.map((obj) => { return obj.main.humidity}))) + ' %',
-      airpressure: Math.round(getAverage(newdata.map((obj) => { return obj.main.pressure}))) + ' mb',
-      wind: Math.round(getAverage(newdata.map((obj) => { return obj.wind.speed}))) + ' m/s',
-      visibility: Math.round(getAverage(newdata.map((obj) => { return obj.visibility}))) / 1000 + ' km'
-    })
-  }
-  const tempData = []
-  
-  for (let i=1; i <=5; i++) {
-    const td = takeDate(i)
-    tempData.push(td)
-  }
-
-  return tempData
+  return getForecast()
 }
 
 export default getForecastDetails

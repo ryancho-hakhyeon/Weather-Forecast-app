@@ -1,8 +1,12 @@
 import React from 'react'
 
-function Loader() {
+import './loader.css'
+
+const Loader = () => {
   return (
-    <div>Loader</div>
+    <div className='loader-container'>
+      <span className='loader'></span>
+    </div>
   )
 }
 

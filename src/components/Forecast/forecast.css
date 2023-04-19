@@ -5,66 +5,138 @@
     align-items: center;
     margin: 2rem;
     padding: 0.5rem;
+    /* border: 1px solid red; */
 }
 
-.container__dayforecast {
+/* Forecast Hourly */
+.container__weekforecast {
     display: flex;
-    cursor: pointer;
-    background: white;
-    border-radius: 20px;
-    margin: 0.5rem;
-    padding: 1rem;
-    width: 46rem;
-    background-image: linear-gradient(rgba(198, 194, 194, 0.5), rgba(246, 235, 235, 0.318))
-}
-
-.container__temp {
-    margin-left: 1rem;
-    font-weight: 600;
-    display: grid;
-    grid-template-columns: 2rem 2rem 2rem 2rem;
-    gap: 0.5rem;
-}
-
-.container__weekday {
-    flex: 1 1;
-    text-align: right;
-    margin-right: 2rem;
-}
-
-.container__highandlow {
-    text-align: right;
-    margin-right: 1rem;
-}
-
-.container__details {
-    display: grid;
-    grid-template-columns: auto auto;
-    flex: 1 1;
-    grid-row-gap: 0;
-    grid-column-gap: 1.4rem;
-    row-gap: 0;
-    column-gap: 1.4rem;
-    width: 44rem;
-    
-}
-.container__details > div {
-    display: flex;
-    height: 1.7rem;
-    justify-content: space-between;
+    flex-direction: column;
+    /* border: 1px solid black; */
     align-items: center;
 }
 
-.container__details > div label:first-child {
+.weekforecast-current-hours,
+.weekforecast-current-week {
+    /* display: flex;
+    flex-direction: column; */
+    width: 46rem;
+    background: rgba(246, 235, 235, 0.7);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 10px 20px 5px 20px;
+}
+
+.weekforecast-hours-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+    font-size: .9rem;
+    font-weight: bold;
     color: #757575;
 }
 
-.container__details > div label:last-child {
-    color: #212121;
+.forecast-hours {
+    list-style-type: none;
+    width: 100%;
+    /* border: 1px solid black; */
+    /* border-top: 2px solid #ffe; */
+    padding: 10px;
+    margin: 5px 5px 10px 5px;
+    display: inline-flex;
+    justify-content: space-between;
 }
 
-.weather__icon {
+.forecast-hours li {
+    height: 200px;
+    width: 75px;
+    border-radius: 20px;
+    background: #ebebeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.forecast-hours li img {
     width: 30px;
     height: 30px;
 }
+
+/* Forecast Weekly */
+.weekforecast-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+    /* margin-bottom: 10px; */
+    font-size: .9rem;
+    font-weight: bold;
+    color: #757575;
+}
+
+.weekforecast-title-icon {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.forecast-weeks {
+    list-style-type: none;
+    width: 100%;
+    /* border: 1px solid black; */
+    border-radius: 20px;
+    padding: 10px 20px 5px 20px;
+}
+
+.forecast-weeks li {
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+    width: 100%;
+    padding: 10px 5px 10px 5px;
+    border-top: 2px solid #ffe;
+}
+
+.forecast-weeks li:hover {
+    background: #ebebeb;
+}
+
+.forecast-weeks li img {
+    width: 30px;
+    height: 30px;
+}
+
+.forecast-weeks li span {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.forecast-weeks li span:nth-child(2), 
+.forecast-weeks li span:nth-child(3){
+    font-weight: 600;
+}
+
+.forecast-weeks li span:nth-child(2) {
+    width: 80px;
+    /* border: 1px solid blue; */
+}
+
+.forecast-weeks li span:nth-child(3) {
+    width: 200px;
+    /* border: 1px solid blue; */
+}
+
+.forecast-weeks li span:nth-child(4) {
+    width: 200px;
+    /* border: 1px solid blue; */
+}
+
+.forecast-weeks li span:nth-child(5) {
+    display: flex;
+    width: 150px;
+    /* border: 1px solid blue; */
+    justify-content: flex-end;
+}
+
 

@@ -1,55 +1,60 @@
 import { useState } from 'react'
-import axios from 'axios'; 
 
 import getCurrentWeather from './getCurrentWeather';
 import getCurrentDetails from './getCurrentDetails';
 import getForecastDetails from './getForecastDetails';
-
-const Api_Key = 'f0b97152c76c2cad6f09c6a9f85928bf'
-const Current_Url = 'https://api.openweathermap.org/data/2.5/weather?'
-const Forecast_Url = 'https://api.openweathermap.org/data/2.5/forecast?'
-
+import getHoursWeather from './getHoursWeather';
+import getAirPollution from './getAirPollution';
+import { fetchData, url } from './getWeatherAPIs'
 
 const useForecast = () => {
-    const [forecast, setForecast] = useState(false)
-    const [weekForecast, setWeekForecast] = useState(false)
+    const [ forecast, setForecast ] = useState(null)
+    const [ weekForecast, setWeekForecast ] = useState(null)
+    const [ airPollution, setAirPollution ] = useState(null)
 
-    const getherCurrentData = (data, city, country) => {
-        const currentDay = getCurrentWeather(data, city, country)
+    const gatherCurrentData = (data, country, region) => {
+        // console.log(data)
+        const currentDay = getCurrentWeather(data, country, region)
         const currentDetails = getCurrentDetails(data)
-        
+
         setForecast({currentDay, currentDetails})
     }
 
-    const getherForecastData = (data) => {
+    const gatherForecastData = (data) => {
+        // console.log(data)
         const forecastDetails = getForecastDetails(data)
+        const forecastBrief = getHoursWeather(data)
         // console.log(forecastDetails)
-        setWeekForecast(forecastDetails)
+        setWeekForecast({forecastDetails, forecastBrief})
+    }
+
+    const gatherAirPollutionData = (data) => {
+        // console.log(data)
+        const airPollution = getAirPollution(data)
+        setAirPollution(airPollution)
     }
 
     const submitRequest = async (value) => {
         // console.log(value)
         // console.log(value[0].city)
-        await axios.request(`${Current_Url}lat=${value[0].lat}&lon=${value[0].lon}&appid=${Api_Key}&units=metric`).then((response) => {
-            // console.log(response.data)
-            getherCurrentData(response.data, value[0].city, value[0].country)
-        }).catch((err) => {
-            console.log(err)
-            return
+
+        fetchData(url.currentWeather(value[0].lat, value[0].lon), (weather) => { 
+            gatherCurrentData(weather, value[0].country, value[0].region)
+        })
+
+        fetchData(url.forecastWeather(value[0].lat, value[0].lon), (forecast) => {
+            gatherForecastData(forecast)
         })
         
-        await axios.request(`${Forecast_Url}lat=${value[0].lat}&lon=${value[0].lon}&appid=${Api_Key}&units=metric`).then((response) => {
-            // console.log(response.data)
-            getherForecastData(response.data)
-        }).catch((err) => {
-            console.log(err)
-            return
+        fetchData(url.airPollution(value[0].lat, value[0].lon), (airPollution) => {
+            gatherAirPollutionData(airPollution)
         })
     }
 
     return {
         forecast,
         weekForecast,
+        airPollution,
         submitRequest
     }
 }

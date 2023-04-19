@@ -4,16 +4,18 @@
     --bg-color-start: #6295bf;
     --bg-color-end: #d1e0ec;
 
+    --bg-night-color-start: #352f44;
+    --bg-night-color-end: #606470;
+
     --text-primary: #FFFFF0;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     border: 0;
     outline: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;  
 }
 
 html {
@@ -25,8 +27,8 @@ html {
 }
 
 body {
-    width: 100%;
-    height: 100vh;
+    width: 100vw;
+    /* height: 100vh; */
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(var(--bg-color-start), var(--bg-color-end)) no-repeat;
 }
