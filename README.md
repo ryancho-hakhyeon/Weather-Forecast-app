@@ -4,7 +4,7 @@
 <p>Web application that shows the weather forecast of the location where you search. Provides simple version and dashboard version by your selecting. </p>
 
 <img src='./Images/app_img.jpg' width='300' height='300'>
-<img src='./Images/app_img_1.jpg' width='300' height='300'>
+<img src='./Images/app_img_2.jpg' width='300' height='300'>
 
 
 ## Development Tools
